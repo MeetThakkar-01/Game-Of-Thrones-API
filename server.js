@@ -3,10 +3,12 @@ import "./config.mjs";
 import mongoose from "mongoose";
 import MONGO_URI from "./config.mjs";
 import MyModel from "./model.mjs";
+import cors from "cors";
 
 const app = express();
 const router = express.Router();
 app.use(express.json());
+app.use(cors());
 
 //Connect to MongoDB
 mongoose
