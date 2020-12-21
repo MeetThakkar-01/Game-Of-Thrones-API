@@ -60,6 +60,7 @@ app.get("/search", async (req, res) => {
   try {
     const data = await MyModel.find();
     var newData = null;
+    var tempData = null;
     if (!data) throw Error("Nothing to Show");
     if (Object.keys(q).length === 0) {
       // NO query parameters, send it all...
@@ -67,7 +68,9 @@ app.get("/search", async (req, res) => {
     } else {
       // We have a query, filter response to match request
       newData = data.filter(function (data) {
-        return Object.keys(this).every((key) => data[key] === this[key]);
+        return Object.keys(this).every((key) =>
+          data[key].toLowerCase().includes(this[key].toLowerCase())
+        );
       }, q);
     }
     res.json(newData).status(200);
