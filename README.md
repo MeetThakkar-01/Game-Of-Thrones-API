@@ -4,7 +4,7 @@ Backend-Url : https://got-api-web-app.herokuapp.com
 
 /count - returns the total number of battles occurred.
 
-/search
+/search - 
 /search?attacker_king=Robb Stark
 
 - returns list of battles where 'attacker_king' or 'defender_king' was
